@@ -29,12 +29,11 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("eight");
         words.add("nine");
         words.add("ten");
-
+/*
         //find the root view so we can add child views to it.
         LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
         //create variable to keep track of the current index position
         int i = 0;
-
           while (i < words.size()){
             //create a new TextView
             TextView wordView = new TextView(this);
@@ -49,6 +48,16 @@ public class NumbersActivity extends AppCompatActivity {
             i++;
 
              }
+  */
+
+        LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
+
+        for (int index = 0 ; index < words.size(); index++){
+            TextView wordView = new TextView(this);
+            wordView.setText(words.get(index));
+            rootView.addView(wordView);
+
+        }
     }
 
 }
