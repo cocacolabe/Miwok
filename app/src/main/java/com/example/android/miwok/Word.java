@@ -27,16 +27,30 @@ public class Word {
     /** Miwok translation for the word */
     private String mMiwokTranslation;
 
+    private int mImageResourceId = NO_IMAGE_PROVIDED ;
+
+    private static final int NO_IMAGE_PROVIDED = -1;
+
+
+
+    //The constructor below is for the screen doesn't have the image (Constructor Overloading)
+    public Word(String defaultTranslation, String miwokTranslation) {
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslation;
+
+    }
+
     /**
-     * Create a new Word object.
+     * Create a new Word object.（constructor)
      *
      * @param defaultTranslation is the word in a language that the user is already familiar with
      *                           (such as English)
      * @param miwokTranslation is the word in the Miwok language
      */
-    public Word(String defaultTranslation, String miwokTranslation) {
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mImageResourceId = imageResourceId;
     }
 
     /**
@@ -53,4 +67,14 @@ public class Word {
         return mMiwokTranslation;
     }
 
+    public int getImageResourceId() {
+        return mImageResourceId;
+    }
+
+    /**Return whether or not there is an image for this word.
+     * @return
+     * */
+    public boolean hasImage() {
+        return mImageResourceId != NO_IMAGE_PROVIDED;
+    }
 }
